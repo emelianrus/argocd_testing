@@ -16,7 +16,7 @@ metadata:
 spec:
   project: default
   source:
-    path: apps/app1
+    path: applicationSets
     repoURL: 'https://github.com/emelianrus/argocd_testing.git'
     targetRevision: master
   destination:

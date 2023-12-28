@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo-server-rollout-svc-active
+spec:
+  selector:
+    app: echo-server-rollout
+  ports:
+    - protocol: TCP
+      port: 8080
+      nodePort: 32521
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo-server-rollout-svc-preview
+spec:
+  selector:
+    app: echo-server-rollout
+  ports:
+    - protocol: TCP
+      port: 8080
+      nodePort: 32522
+  type: NodePort
