@@ -11,7 +11,7 @@ spec:
       path: apps/in-cluster/logstash/secret
 
     - repoURL: 'https://helm.elastic.co'
-      chart: elastic/logstash
+      chart: 'logstash'
       targetRevision: 7.17.3
       helm:
         valueFiles:
