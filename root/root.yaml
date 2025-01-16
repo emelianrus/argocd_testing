@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: applicationroot
+  name: argocd-app-of-apps
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argocd
   # Add this finalizer ONLY if you want these to cascade delete.
@@ -15,10 +15,12 @@ metadata:
     name: app1
 spec:
   project: default
+
   source:
     path: applicationSets
-    repoURL: 'https://github.com/emelianrus/argocd_testing.git'
+    repoURL: 'git@github.com:emelianrus/argocd_testing.git'
     targetRevision: master
+
   destination:
     name: ''
     namespace: app

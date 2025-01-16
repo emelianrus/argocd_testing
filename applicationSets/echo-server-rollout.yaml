@@ -17,7 +17,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/emelianrus/argocd_testing.git
+        repoURL: git@github.com:emelianrus/argocd_testing.git
         targetRevision: HEAD
         path: apps/{{cluster}}/echo-server-rollout
       destination:
