@@ -15,8 +15,8 @@ spec:
       targetRevision: 7.17.3
       helm:
         valueFiles:
-          - helm/values.yaml
-          # - $values/apps/in-cluster/logstash/helm/values.yaml
+          # - helm/values.yaml
+          - $values/apps/in-cluster/logstash/helm/values.yaml
 
     - repoURL: git@github.com:emelianrus/argocd_testing.git
       targetRevision: master
