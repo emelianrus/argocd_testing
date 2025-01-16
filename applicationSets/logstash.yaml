@@ -8,7 +8,8 @@ spec:
   sources:
     - repoURL: git@github.com:emelianrus/argocd_testing.git
       targetRevision: master
-      path: apps/{{cluster}}/logstash/secret
+      path: apps/in-cluster/logstash/secret
+
     - repoURL: 'https://helm.elastic.co'
       chart: elastic/logstash
       targetRevision: 7.17.3
