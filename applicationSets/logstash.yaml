@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
+  sources:
     - repoURL: git@github.com:emelianrus/argocd_testing.git
       targetRevision: master
       path: apps/{{cluster}}/logstash/secret
