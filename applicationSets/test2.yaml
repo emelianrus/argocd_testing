@@ -6,22 +6,27 @@ metadata:
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
-  generators:
-  - git:
-    repoURL: https://github.com/argoproj/argo-cd.git
-    revision: HEAD
-    directories:
-    - path: applicationset/examples/git-generator-directory/cluster-addons/*
-  - git:
-      repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-      revision: HEAD
-      files:
-      - path: apps/in-cluster/test/list-elementsYaml-example.yaml
-  - list:
-      elementsYaml: "{{ .key.components | toJson }}"
+   generators:
+    # matrix 'parent' generator
+    - matrix:
+        generators:
+        - git:
+          repoURL: https://github.com/argoproj/argo-cd.git
+          revision: HEAD
+          directories:
+          - path: applicationset/examples/git-generator-directory/cluster-addons/*
+        - git:
+            repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+            revision: HEAD
+            files:
+            - path: apps/in-cluster/test/list-elementsYaml-example.yaml
+        - list:
+            elementsYaml: "{{ .key.components | toJson }}"
   template:
     metadata:
       name: '{{.name}}-guestbook'
+      labels:
+        test: '{{.path.basename}}'
     spec:
       project: "default"
       source:
