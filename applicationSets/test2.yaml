@@ -10,23 +10,21 @@ spec:
   - matrix:
       generators:
       - git:
-          repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-          revision: master
-          files:
-          - path: apps/in-cluster/list-elementsYaml-example.yaml
-      - list:
-          elementsYaml: "{{ .key.components | toJson }}"
+        repoURL: https://github.com/argoproj/argo-cd.git
+        revision: master
+        directories:
+        - path: apps/in-cluster/*
   template:
     metadata:
-      name: '{{.name}}-guestbook'
+      name: '{{.path.basename}}'
     spec:
       project: "default"
       source:
         repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-        path: apps/in-cluster/base-chart
+        path: apps/in-cluster/test/base-chart
         helm:
           valueFiles:
-            - apps/in-cluster/{{.name}}/helm/values.yaml
+            - apps/in-cluster/{{.path.basename}}/helm/values.yaml
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: app
