@@ -6,16 +6,16 @@ metadata:
 spec:
   project: default
   sources:
-    # - repoURL: git@github.com:emelianrus/argocd_testing.git
-    #   targetRevision: master
-    #   path: apps/in-cluster/logstash/secret
-
     - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
       path: apps/in-cluster/base-chart
       helm:
         valueFiles:
           # - helm/values.yaml
           - $values/apps/in-cluster/logstash/helm/values.yaml
+
+    - repoURL: git@github.com:emelianrus/argocd_testing.git
+      targetRevision: master
+      path: $values/apps/in-cluster/logstash/kustomize/kustomization.yaml
 
     - repoURL: git@github.com:emelianrus/argocd_testing.git
       targetRevision: master
