@@ -6,14 +6,15 @@ metadata:
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
-  # - git:
-  #     repoURL: https://github.com/argoproj/argo-cd.git
-  #     revision: HEAD
-  #     directories:
-  #     - path: applicationset/examples/git-generator-directory/cluster-addons/*
+
   generators:
   - matrix:
       generators:
+      - git:
+        repoURL: https://github.com/argoproj/argo-cd.git
+        revision: HEAD
+        directories:
+        - path: apps/in-cluster/*
       - git:
           repoURL: 'git@github.com:emelianrus/argocd_testing.git'
           revision: HEAD
