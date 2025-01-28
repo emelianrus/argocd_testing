@@ -10,7 +10,6 @@ spec:
     - merge:
         mergeKeys:
           - name
-          - path.basename
         generators:
           - git:
               repoURL: https://github.com/argoproj/argo-cd.git
