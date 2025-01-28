@@ -8,7 +8,12 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - matrix:
-      generators:
+      merge:
+      - git:
+        repoURL: https://github.com/argoproj/argo-cd.git
+        revision: HEAD
+        directories:
+        - path: applicationset/examples/git-generator-directory/cluster-addons/*
       - git:
           repoURL: 'git@github.com:emelianrus/argocd_testing.git'
           revision: HEAD
@@ -19,6 +24,8 @@ spec:
   template:
     metadata:
       name: '{{.name}}-guestbook'
+      label: 
+        test: '{{.path.basename}}'
     spec:
       project: "default"
       source:
