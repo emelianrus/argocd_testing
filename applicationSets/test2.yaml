@@ -13,7 +13,7 @@ spec:
         - repoURL: git@github.com:emelianrus/argocd_testing.git
           targetRevision: master
           files:
-          - path: applicationset/examples/list-generator/list-elementsYaml-example.yaml
+          - path: list-elementsYaml-example.yaml
       - list:
           elementsYaml: "{{ .key.components | toJson }}"
   template:
