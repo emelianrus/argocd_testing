@@ -16,7 +16,7 @@ spec:
     metadata:
       name: '{{.path.basename}}'
     spec:
-      project: "default"
+      project: "test"
       source:
         repoURL: git@github.com:emelianrus/argocd_testing.git
         path: apps/in-cluster/test/base-chart
