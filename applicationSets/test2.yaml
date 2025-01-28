@@ -15,7 +15,7 @@ spec:
     metadata:
       name: '{{.name}}-guestbook'
     spec:
-      project: "my-project"
+      project: "default"
       source:
         repoURL: 'git@github.com:emelianrus/argocd_testing.git'
         path: apps/in-cluster/base-chart
