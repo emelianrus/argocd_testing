@@ -9,7 +9,8 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: logstash2
+      - name: logstash2
+      - name: logstash3
   template:
     metadata:
       name: '{{.cluster}}-guestbook'
