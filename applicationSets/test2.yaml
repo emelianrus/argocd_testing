@@ -7,13 +7,11 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - matrix:
-      generators:
-      - git:
-        repoURL: https://github.com/argoproj/argo-cd.git
-        revision: master
-        directories:
-        - path: apps/in-cluster/*
+  - git:
+      repoURL: https://github.com/argoproj/argo-cd.git
+      revision: master
+      directories:
+      - path: apps/in-cluster/*
   template:
     metadata:
       name: '{{.path.basename}}'
