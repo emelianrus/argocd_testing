@@ -8,8 +8,8 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - git:
-      repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-      revision: master
+      repoURL: git@github.com:emelianrus/argocd_testing.git
+      revision: HEAD
       directories:
       - path: apps/in-cluster/*
   template:
@@ -18,7 +18,7 @@ spec:
     spec:
       project: "default"
       source:
-        repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+        repoURL: git@github.com:emelianrus/argocd_testing.git
         path: apps/in-cluster/test/base-chart
         helm:
           valueFiles:
