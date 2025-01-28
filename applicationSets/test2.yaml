@@ -7,21 +7,23 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-    # merge 'parent' generator
     - merge:
+        mergeKeys:
+          - name
+          - path.basename
         generators:
-        - git:
-            repoURL: https://github.com/argoproj/argo-cd.git
-            revision: HEAD
-            directories:
-            - path: apps/in-cluster/*
-        - git:
-            repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-            revision: HEAD
-            files:
-            - path: apps/in-cluster/test/list-elementsYaml-example.yaml
-        - list:
-            elementsYaml: "{{ .key.components | toJson }}"
+          - git:
+              repoURL: https://github.com/argoproj/argo-cd.git
+              revision: HEAD
+              directories:
+                - path: apps/in-cluster/*
+          - git:
+              repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+              revision: HEAD
+              files:
+                - path: apps/in-cluster/test/list-elementsYaml-example.yaml
+          - list:
+              elementsYaml: "{{ .key.components | toJson }}"
   template:
     metadata:
       name: '{{.name}}-guestbook'
