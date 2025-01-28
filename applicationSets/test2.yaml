@@ -7,23 +7,18 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - matrix:
-      generators:
-      - git:
-          repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-          revision: master
-          files:
-          - path: test/list-elementsYaml-example.yaml
-      - list:
-          elementsYaml: "{{ .key.components | toJson }}"
+  - list:
+      elements:
+      - name: logstash2
+      - name: logstash3
   template:
     metadata:
-      name: '{{.name}}-guestbook'
+      name: '{{.cluster}}-guestbook'
     spec:
-      project: "default"
+      project: "my-project"
       source:
         repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-        path: apps/in-cluster/{{.name}}/helm/values.yaml
+        path: apps/in-cluster/base-chart
         helm:
           valueFiles:
             - apps/in-cluster/{{.name}}/helm/values.yaml
