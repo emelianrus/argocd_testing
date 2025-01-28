@@ -6,13 +6,12 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: git@github.com:emelianrus/argocd_testing.git
-      targetRevision: master
-      path: apps/in-cluster/logstash/secret
+    # - repoURL: git@github.com:emelianrus/argocd_testing.git
+    #   targetRevision: master
+    #   path: apps/in-cluster/logstash/secret
 
-    - repoURL: 'https://helm.elastic.co'
-      chart: 'logstash'
-      targetRevision: 7.17.3
+    - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+      path: apps/in-cluster/base-chart
       helm:
         valueFiles:
           # - helm/values.yaml
