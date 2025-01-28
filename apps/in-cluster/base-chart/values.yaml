@@ -4,3 +4,4 @@
 
 NAME: "test"
 IMAGE: nginx:1.27.3-otel
+replicas: 1

@@ -1,2 +1,2 @@
 NAME: nginx2
-IMAGE: nginx:1.27.3-bookworm-otel
+# IMAGE: nginx:1.27.3-bookworm-otel
