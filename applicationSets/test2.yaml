@@ -9,11 +9,11 @@ spec:
   generators:
   - list:
       elements:
-      - logstash2
-      - logstash3
+      - name: logstash2
+      - name: logstash3
   template:
     metadata:
-      name: '{{.}}-guestbook'
+      name: '{{.name}}-guestbook'
     spec:
       project: "default"
       source:
@@ -21,7 +21,7 @@ spec:
         path: apps/in-cluster/base-chart
         helm:
           valueFiles:
-            - apps/in-cluster/{{.}}/helm/values.yaml
+            - apps/in-cluster/{{.name}}/helm/values.yaml
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: app
