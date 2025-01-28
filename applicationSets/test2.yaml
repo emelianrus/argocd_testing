@@ -13,7 +13,7 @@ spec:
       - name: logstash3
   template:
     metadata:
-      name: '{{.cluster}}-guestbook'
+      name: '{{.name}}-guestbook'
     spec:
       project: "my-project"
       source:
