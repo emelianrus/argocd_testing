@@ -11,7 +11,7 @@ spec:
       generators:
       - git:
           repoURL: git@github.com:emelianrus/argocd_testing.git
-          targetRevision: master
+          revision: master
           files:
           - path: list-elementsYaml-example.yaml
       - list:
