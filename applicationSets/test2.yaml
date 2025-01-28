@@ -10,7 +10,7 @@ spec:
   - matrix:
       generators:
       - git:
-        - repoURL: git@github.com:emelianrus/argocd_testing.git
+          repoURL: git@github.com:emelianrus/argocd_testing.git
           targetRevision: master
           files:
           - path: list-elementsYaml-example.yaml
