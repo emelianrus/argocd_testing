@@ -11,9 +11,9 @@ spec:
       generators:
       - git:
           repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-          revision: HEAD
+          revision: master
           files:
-          - path: test/list-elementsYaml-example.yaml
+          - path: apps/in-cluster//list-elementsYaml-example.yaml
       - list:
           elementsYaml: "{{ .key.components | toJson }}"
   template:
