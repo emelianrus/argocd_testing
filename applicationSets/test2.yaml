@@ -7,7 +7,6 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
    generators:
-    # matrix 'parent' generator
     - matrix:
         generators:
         # - git:
@@ -24,9 +23,9 @@ spec:
             elementsYaml: "{{ .key.components | toJson }}"
   template:
     metadata:
-      name: '{{.name}}-guestbook'
-      labels:
-        test: '{{.path.basename}}'
+      name: '{{.name}}'
+      # labels:
+      #   test: '{{.path.basename}}'
     spec:
       project: "default"
       source:
