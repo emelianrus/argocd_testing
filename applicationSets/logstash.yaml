@@ -1,33 +1,33 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: logstash
-  namespace: argocd
-spec:
-  project: default
-  sources:
-    - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-      path: apps/in-cluster/base-chart
-      helm:
-        valueFiles:
-          # - helm/values.yaml
-          - $values/apps/in-cluster/logstash/helm/values.yaml
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: logstash
+#   namespace: argocd
+# spec:
+#   project: default
+#   sources:
+#     - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+#       path: apps/in-cluster/base-chart
+#       helm:
+#         valueFiles:
+#           # - helm/values.yaml
+#           - $values/apps/in-cluster/logstash/helm/values.yaml
 
-    - repoURL: git@github.com:emelianrus/argocd_testing.git
-      targetRevision: master
-      path: apps/in-cluster/logstash/kustomize
+#     - repoURL: git@github.com:emelianrus/argocd_testing.git
+#       targetRevision: master
+#       path: apps/in-cluster/logstash/kustomize
 
-    - repoURL: git@github.com:emelianrus/argocd_testing.git
-      targetRevision: master
-      ref: values
+#     - repoURL: git@github.com:emelianrus/argocd_testing.git
+#       targetRevision: master
+#       ref: values
 
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: app
+#   destination:
+#     server: 'https://kubernetes.default.svc'
+#     namespace: app
 
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: false
-    syncOptions:
-      - CreateNamespace=true
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: false
+#     syncOptions:
+#       - CreateNamespace=true

@@ -1,0 +1,4 @@
+key:
+  components:
+    - name: logstash2
+    - name: logstash3
