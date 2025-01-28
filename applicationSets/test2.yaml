@@ -13,7 +13,7 @@ spec:
       - logstash3
   template:
     metadata:
-      name: '{{item}}-guestbook'
+      name: '{{.}}-guestbook'
     spec:
       project: "default"
       source:
@@ -21,7 +21,7 @@ spec:
         path: apps/in-cluster/base-chart
         helm:
           valueFiles:
-            - apps/in-cluster/{{item}}/helm/values.yaml
+            - apps/in-cluster/{{.}}/helm/values.yaml
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: app
