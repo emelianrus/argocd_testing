@@ -16,8 +16,8 @@ spec:
               revision: HEAD
               files:
                 - path: apps/in-cluster/test/list-elementsYaml-example.yaml
-          # - list:
-          #     elementsYaml: "{{ .key.components | toJson }}"
+          - list:
+              elementsYaml: "{{ .key.components | toJson }}"
           - git:
               repoURL: https://github.com/argoproj/argo-cd.git
               revision: HEAD
