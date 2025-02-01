@@ -11,7 +11,7 @@ spec:
       generators:
       - git:
           repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-          revision: master
+          revision: $ARGOCD_APP_REVISION
           files:
           - path: apps/in-cluster/test/list-elementsYaml-example.yaml
       - list:
@@ -21,7 +21,6 @@ spec:
       name: '{{.name}}'
       labels:
         variableA: '{{.variable1}}'
-        variableB: test-$ARGOCD_APP_REVISION
     spec:
       project: "default"
       source:
