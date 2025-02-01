@@ -29,7 +29,7 @@ spec:
         # targetRevision: master
         helm:
           valueFiles:
-            - apps/in-cluster/{{.name}}/helm/values.yaml
+            - /apps/in-cluster/{{.name}}/helm/values.yaml
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: app
