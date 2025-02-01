@@ -19,7 +19,7 @@ spec:
   template:
     metadata:
       name: '{{.name}}'
-      label:
+      labels:
         variableA: '{{.variable1}}'
     spec:
       project: "default"
