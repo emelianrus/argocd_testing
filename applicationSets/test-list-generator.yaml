@@ -34,5 +34,5 @@ spec:
         server: 'https://kubernetes.default.svc'
         namespace: app
       info:
-        name: 'Link:'
+      - name: 'Link:'
         value: 'https://google.com'
