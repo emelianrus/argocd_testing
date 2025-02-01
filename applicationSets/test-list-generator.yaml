@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook2
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - matrix:
+    generators:
+    - git:
+        repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+        revision: master
+        files:
+        - path: apps/in-cluster/test/list-elementsYaml-example.yaml
+    - list:
+        elementsYaml: "{{ .components | toJson }}"
+  template:
+    metadata:
+      name: '{{.name}}'
+      label:
+        variableA: '{{.variable1}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+        path: apps/in-cluster/base-chart
+        targetRevision: master
+        helm:
+          valueFiles:
+            - apps/in-cluster/{{.name}}/helm/values.yaml
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: app
