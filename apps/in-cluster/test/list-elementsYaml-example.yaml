@@ -1,5 +1,4 @@
 variable1: test
-key:
-  apps:
-    - name: logstash2
-    - name: logstash3
+apps:
+  - name: logstash2
+  - name: logstash3

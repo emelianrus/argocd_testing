@@ -15,7 +15,7 @@ spec:
         files:
         - path: apps/in-cluster/test/list-elementsYaml-example.yaml
     - list:
-        elementsYaml: "{{ .components | toJson }}"
+        elementsYaml: "{{ .apps | toJson }}"
   template:
     metadata:
       name: '{{.name}}'
