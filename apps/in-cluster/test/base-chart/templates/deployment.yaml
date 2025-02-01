@@ -4,6 +4,8 @@ metadata:
   name: {{ .Values.NAME}}
   labels:
     app: {{ .Values.NAME}}
+  annotations:
+    link.argocd.argoproj.io/external-link: https://youtube.com
 spec:
   replicas: {{ .Values.replicas }}
   selector:
