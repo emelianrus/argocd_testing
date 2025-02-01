@@ -11,7 +11,7 @@ spec:
       generators:
       - git:
           repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-          revision: $ARGOCD_APP_REVISION
+          revision: $$ARGOCD_APP_REVISION
           files:
           - path: apps/in-cluster/test/list-elementsYaml-example.yaml
       - list:
