@@ -27,7 +27,7 @@ spec:
         repoURL: 'git@github.com:emelianrus/argocd_testing.git'
         path: apps/in-cluster/test/base-chart
         targetRevision: '{{.revision}}'
-        helm:asdfa
+        helm:
           valueFiles:
             - /apps/in-cluster/{{.name}}/helm/values.yaml
       destination:
