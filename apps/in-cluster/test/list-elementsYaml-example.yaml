@@ -1,5 +1,5 @@
 variable1: test
-revision: master
+revision: $ARGOCD_APP_REVISION
 apps:
   - name: logstash2
   - name: logstash3
