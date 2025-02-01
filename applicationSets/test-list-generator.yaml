@@ -25,7 +25,7 @@ spec:
       project: "default"
       source:
         repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-        path: apps/in-cluster/base-chart
+        path: apps/in-cluster/test/base-chart
         # targetRevision: master
         helm:
           valueFiles:
