@@ -1,5 +1,4 @@
 variable1: test
-asdfasdfasdfs
 revision: master
 apps:
   - name: logstash2
