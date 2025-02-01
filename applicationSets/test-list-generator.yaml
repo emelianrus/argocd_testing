@@ -21,7 +21,7 @@ spec:
       name: '{{.name}}'
       labels:
         variableA: '{{.variable1}}'
-        variableB: '${ARGOCD_APP_REVISION}'
+        variableB: test-$ARGOCD_APP_REVISION
     spec:
       project: "default"
       source:
