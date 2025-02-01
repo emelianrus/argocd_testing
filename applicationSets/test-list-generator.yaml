@@ -8,14 +8,14 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - matrix:
-    generators:
-    - git:
-        repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-        revision: master
-        files:
-        - path: apps/in-cluster/test/list-elementsYaml-example.yaml
-    - list:
-        elementsYaml: "{{ .apps | toJson }}"
+      generators:
+      - git:
+          repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+          revision: master
+          files:
+          - path: apps/in-cluster/test/list-elementsYaml-example.yaml
+      - list:
+          elementsYaml: "{{ .apps | toJson }}"
   template:
     metadata:
       name: '{{.name}}'
