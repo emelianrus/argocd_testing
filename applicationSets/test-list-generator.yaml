@@ -31,7 +31,7 @@ spec:
           helm:
             valueFiles:
               - $values/apps/in-cluster/{{.name}}/helm/values.yaml
-        - repoURL: 'https://git.example.com/org/value-files.git'
+        - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
           targetRevision: 'master'
           ref: values
 
