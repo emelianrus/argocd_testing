@@ -26,14 +26,14 @@ spec:
       sources:
         - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
           path: apps/in-cluster/test/base-chart
-          chart: base-chart
+          #chart: base-chart
           targetRevision: 'master'
           helm:
             valueFiles:
               - /apps/in-cluster/{{.name}}/helm/values.yaml
-        - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-          targetRevision: 'master'
-          ref: values
+        # - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+        #   targetRevision: 'master'
+        #   ref: values
 
       destination:
         server: 'https://kubernetes.default.svc'
