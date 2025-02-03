@@ -24,9 +24,10 @@ spec:
     spec:
       project: "default"
       sources:
-      - repoURL: 'https://prometheus-community.github.io/helm-charts'
-        chart: prometheus
-        targetRevision: 15.7.1
+      - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+        # chart: prometheus
+        path: apps/in-cluster/{{.name}}/base-chart
+        # targetRevision: 15.7.1
         helm:
           valueFiles:
           - $values/apps/in-cluster/{{.name}}/helm/values.yaml
