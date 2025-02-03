@@ -23,13 +23,17 @@ spec:
         variableA: '{{.variable1}}'
     spec:
       project: "default"
-      source:
-        repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-        path: apps/in-cluster/test/base-chart
-        targetRevision: 'test'
-        helm:
-          valueFiles:
-            - /apps/in-cluster/{{.name}}/helm/values.yaml
+      sources:
+        - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+          path: apps/in-cluster/test/base-chart
+          targetRevision: 'test'
+          helm:
+            valueFiles:
+              - $values/apps/in-cluster/{{.name}}/helm/values.yaml
+        - repoURL: 'https://git.example.com/org/value-files.git'
+          targetRevision: 'test'
+          ref: values
+
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: app
