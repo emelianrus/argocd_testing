@@ -31,10 +31,10 @@ spec:
             releaseName: sealed-secrets
           helm:
             valueFiles:
-              - /apps/in-cluster/{{.name}}/helm/values.yaml
-        # - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
-        #   targetRevision: 'master'
-        #   ref: values
+              - $values/apps/in-cluster/{{.name}}/helm/values.yaml
+        - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+          targetRevision: 'master'
+          ref: values
 
       destination:
         server: 'https://kubernetes.default.svc'
