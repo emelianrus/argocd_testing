@@ -1,6 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
+metadata:
+  name: karpenter
+  namespace: argocd
 spec:
+  project: default
   sources:
   - repoURL: 'oci://public.ecr.aws/karpenter'
     chart: karpenter
@@ -11,3 +15,7 @@ spec:
   - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
     targetRevision: master
     ref: values
+
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
