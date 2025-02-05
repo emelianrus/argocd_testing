@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+spec:
+  sources:
+  - repoURL: 'oci://public.ecr.aws/karpenter'
+    chart: karpenter
+    targetRevision: 1.0.6
+    helm:
+      valueFiles:
+      - $values/apps/in-cluster/karpenter/values.yaml
+  - repoURL: 'git@github.com:emelianrus/argocd_testing.git'
+    targetRevision: master
+    ref: values
